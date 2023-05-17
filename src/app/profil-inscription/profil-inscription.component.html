@@ -58,16 +58,14 @@
       <input id="age" class="form-control mb-3" type="number" formControlName="age">
   
       <h5>Liste des cours à suivre</h5>
-      
-       <div *ngFor="let course of coursSuivis ; let i=index">
-        <!-- <input 
-          class="form-control mb-2" 
-          type="text" 
-          [formControlName]="i">  -->
-  
-      </div>    
-      
+        
       <div class="container border border-primary p-4">
+        <div *ngFor="let course of coursSuivis.controls ; let i=index">
+            <input 
+              class="form-control mb-2" 
+              type="text" 
+              [formControlName]="i"> 
+        </div>  
         <button 
           class="btn btn-success"
           (click)="addCourse()">
@@ -81,5 +79,12 @@
       </button>
   
     </form>
+
+    <br><br>
+    <div>
+        firstname : {{this.formValue.firstname}}
+        lastname : {{this.formValue.lastname}}
+        email : {{this.formValue.email}}
+    </div>
   
   </div>

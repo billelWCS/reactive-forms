@@ -11,6 +11,7 @@ export class ProfilInscriptionComponent implements OnInit {
 
   profileForm : FormGroup ;
   coursSuivis : FormArray;
+  formValue : any = {};
 
   constructor(private fb : FormBuilder){}
 
@@ -32,10 +33,12 @@ export class ProfilInscriptionComponent implements OnInit {
 
   addCourse(){
     this.coursSuivis.push(this.fb.control(''));
+    console.log(this.coursSuivis.controls[0]);
   }
 
   onSubmit(){
-    
+    this.profileForm.value
+    console.log(this.profileForm.controls.firstname.value);
   }
 
 }
