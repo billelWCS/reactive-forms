@@ -1,0 +1,85 @@
+<div class="container p-5">
+
+    <h3>Cours Reactive Forms</h3>
+  
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+      <div class="mb-3">
+        <label class="form-label" for="firstname">
+          firstname *
+        </label>
+        <input 
+          id="firstname" 
+          class="form-control " 
+          type="text" 
+          formControlName="firstname"
+          [ngClass]="{'is-invalid' : f.firstname.invalid && f.firstname.touched}">
+          
+          <div class="invalid-feedback" *ngIf="f.firstname.invalid && f.firstname.touched">
+            <div *ngIf="f.firstname.errors.required">
+              Le prénom est obligatoire !
+            </div>
+          </div>
+      </div>
+      
+  
+  
+      <label class="form-label" for="lastname">Lastname *
+      </label>
+      <input id="lastname" class="form-control mb-3" type="text" formControlName="lastname">
+  
+  
+  
+      <div class="mb-3">
+        <label class="form-label" for="email">email *
+        </label>
+        <input 
+          id="email" 
+          class="form-control" 
+          type="text" 
+          formControlName="email"
+          [ngClass]="{'is-invalid' : f.email.invalid && f.email.touched}">
+        
+        <div class="invalid-feedback" *ngIf="f.email?.invalid && f.email.touched">
+          <div *ngIf="f.email.errors.required">
+            L'email est obligatoire !
+          </div>
+          <div *ngIf="f.email.errors.email">
+            L'email est invalide
+          </div>
+        </div>
+  
+      </div>
+  
+  
+      <label class="form-label" for="age">
+        Age
+      </label>
+      <input id="age" class="form-control mb-3" type="number" formControlName="age">
+  
+      <h5>Liste des cours à suivre</h5>
+      
+       <div *ngFor="let course of coursSuivis ; let i=index">
+        <!-- <input 
+          class="form-control mb-2" 
+          type="text" 
+          [formControlName]="i">  -->
+  
+      </div>    
+      
+      <div class="container border border-primary p-4">
+        <button 
+          class="btn btn-success"
+          (click)="addCourse()">
+          Ajouter cours
+        </button>
+      </div>
+  
+      <br><br>
+      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">
+        Valider
+      </button>
+  
+    </form>
+  
+  </div>

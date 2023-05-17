@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importer la police depuis une source externe */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&display=swap');
+
+/* Appliquer la police à l'ensemble de l'application */
+body {
+  font-family: 'Nunito', sans-serif;
+  margin:0;
+}
+
+/* Ajouter des styles supplémentaires */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  /* Autres styles de police */
+}
+
+
+/* Autres styles globaux */
