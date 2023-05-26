@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center p-5">
+    <form class="w-50" [formGroup] = "profilForm" (ngSubmit)="onSubmit()"> 
+        <div class="mb-3">
+            <label for="">Name</label>
+            <input 
+                type="text" 
+                class="form-control"
+                formControlName="name">
+                <div *ngIf="f.name.errors">
+                    <!-- <p *ngIf="f.name.errors.required"class="text-danger"> Name is required</p> -->
+                </div>  
+        </div>
+        <div class="mb-3">
+            <label for="">Age</label>
+            <input 
+                type="number" 
+                class="form-control"
+                formControlName="age">
+                <div *ngIf="f.age.errors">
+                    <!-- <p *ngIf="f.age.errors.required"class="text-danger m-0 p-0"> Name is required</p> -->
+                    <p *ngIf="f.age.errors.age"class="text-danger m-0 p-0"> Vous devez avoir plus de 20 ans</p>
+                </div>  
+        </div>
+        <div class="" formGroupName="address">
+            <h5>Address</h5>
+            <div class="mb-3">
+                <label for="">Numero</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    formControlName="number">
+            </div>
+            <div class="mb-3">
+                <label for="">Code Postale</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    formControlName="cp">
+            </div>
+            <div class="mb-3">
+                <label for="">Ville</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    formControlName="city">
+            </div>
+        </div>
+        <!-- f.passwordConfirmation.errors.mustMatch -->
+       
+            <p *ngIf="submitted && profilForm.hasError('isRequired')" class="text-danger">
+                l'un des deux champs est obligatoire
+                {{profilForm.hasError('isRequired' )}}
+            </p>
+        
+        
+        
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>

@@ -1,0 +1,83 @@
+<!-- <div class="container w-50 justify-content-center p-5">
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="" for="">
+                Identifiant
+            </label>
+            <input 
+                class="form-control" 
+                type="text"
+                formControlName="identifiant">
+        </div>
+        <div class="mb-3">
+            <label class="" for="">
+                Titre
+            </label>
+            <input 
+                class="form-control" 
+                type="text"
+                formControlName="titre">
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div> -->
+
+<div class="container w-50 justify-content-center p-5">
+    <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="" for="">
+                Name
+            </label>
+            <input 
+                class="form-control" 
+                type="text"
+                formControlName="name">
+                <div *ngIf="fProfil.name.errors">
+                    <p *ngIf="fProfil.name.errors.required"
+                    class="text-danger">le nom est obligatoire</p>
+                </div>
+            
+        </div>
+        <div class="mb-3">
+            <label class="" for="">
+                Age
+            </label>
+            <input 
+                class="form-control" 
+                type="number"
+                formControlName="age">
+            <div *ngIf="fProfil.age.errors">
+                <p *ngIf="fProfil.age.errors.minAge18"
+                class="text-danger">l'age doit être plus de 18 ans</p>
+                <p *ngIf="fProfil.age.errors.maxAge"
+                class="text-danger">l'age doit être moins de 50 ans</p>
+            </div>
+        </div>
+        <div formGroupName="address">
+            <h5>Address</h5>
+            <label class="" for="">
+                Number
+            </label>
+            <input 
+                class="form-control" 
+                type="number"
+                formControlName="number">
+            <label class="" for="">
+                Street
+            </label>
+            <input 
+                class="form-control" 
+                type="text"
+                formControlName="street">
+            <label class="" for="">
+                City
+            </label>
+            <input 
+                class="form-control" 
+                type="text"
+                formControlName="city">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+<div class="container w-50 p-5 d-flex flex-column justify-content-center">
+  <h4>Le chalenge</h4>
+  <form (ngSubmit) = "onSubmit()" [formGroup] = "movieForm">
+    <div formGroupName="info">
+      Identifiant: 
+      <input 
+        type="text"
+        class="form-control"
+        formControlName="identifiant">
+        
+      Titre: 
+      <input 
+        type="text"
+        class="form-control"
+        formControlName="titre">
+
+    </div>
+    Type: 
+    <select
+    formControlName="type" 
+    class="form-control">
+    <option value="serie">Série</option>
+    <option value="film">Film</option>
+    <option value="episode">Épisode</option>
+  </select>
+    Année de sortie : 
+    <input 
+      type="number"
+      class="form-control"
+      formControlName="annee">
+      <div *ngIf="submitted && f['annee'].errors">
+        <p class="text-danger" 
+          *ngIf="f['annee'].errors.min">L'année doit être comprise entre et cette année </p>
+      </div>
+      <p *ngIf="submitted && f.info.hasError('isRequired')" class="text-danger my-3"
+        >L'un des deux champs 'Identifiant' ou 'Titre' doit être renseigné</p>
+      <button class = "btn btn-primary" type ="submit">Envoyer</button>
+  </form>
+</div>
